@@ -4,8 +4,8 @@ library(tidyr)
 
 # Capture command-line arguments
 args <- commandArgs(trailingOnly = TRUE)
-if (length(args) != 2) {
-  stop("Need to proved plink prefix, file with targets.")
+if (length(args) != 3) {
+  stop("Need to proved plink prefix, file with targets and output suffix")
 }
 
 # Print all arguments
@@ -13,22 +13,29 @@ cat("Arguments passed:", args, "\n")
 
 prefix <- args[1]
 target_file <- args[2]
+output_file <- args[3]
 targets <- read.csv(target_file, header=FALSE, col.names=c("id"))$id
 
-setwd("/gpfs/users/a1880987/projects/dingo/dingo_heritage/qpadm")
+setwd("~/Library/CloudStorage/Box-Box/projects/dingo/heritage_paper/qpadm_revisions/")
 
 
-left_right <- c("GermanShepherdDog", "Dingo_Ancient_Curracurrang", "Dingo_Ancient_Nullarbor")
+#left_right <- c("GermanShepherdDog", "Dingo_Ancient_Nullarbor", "Dingo_Ancient_Curracurrang")
+left_right <- c("LabradorRetriever", "Dingo_Ancient_Curracurrang", "Dingo_Ancient_Nullarbor")
 right_fix <- c("CoyoteCalifornia", "Zhokhov9500BP.CGG6", "Germany_7k", "Ireland_Neolithic.Newgrange", "Russia_Baikal_7k") # Karelia_Veretye, 
 
 all_combinations <- unlist(
-  lapply(seq_len(3), function(x) combn(left_right, x, simplify = FALSE)), 
+  lapply(seq_len(2), function(x) combn(left_right, x, simplify = FALSE)), 
   recursive = FALSE
 )
 
+# all_combinations <- unlist(
+#   lapply(seq_len(2), function(x) combn(left_right, x, simplify = FALSE)), 
+#   recursive = FALSE
+# )
+
 expected_columns <- c(
   "pat", "wt", "dof", "chisq", "p", "f4rank",
-  "GermanShepherdDog", "Dingo_Ancient_Curracurrang", "Dingo_Ancient_Nullarbor",
+  left_right,
   "feasible", "best", "dofdiff", "chisqdiff", "p_nested",
   "target", "right", "source"
 )
@@ -107,6 +114,6 @@ all_weights_df <- do.call(rbind, all_weights)
 all_popdrop_df <- do.call(rbind, all_popdrop)
 
 # Save the results to files
-write.csv(all_weights_df, paste0("weights.csv"), row.names = FALSE)
-write.csv(all_popdrop_df, paste0("popdrop.csv"), row.names = FALSE)
+write.csv(all_weights_df, paste0("weights_", output_file, ".csv"), row.names = FALSE)
+write.csv(all_popdrop_df, paste0("popdrop_", output_file, ".csv"), row.names = FALSE)
 print("Finito WGS!")

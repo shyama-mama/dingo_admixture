@@ -56,7 +56,7 @@ plot_heat_map <- function(data, grid, australia, grid_density=100, radius=200, n
   
   # Convert back to a dataframe if needed
   filtered_grid <- as.data.frame(st_coordinates(filtered_grid_sf)) %>%
-    rename(Long = X, Lat = Y)
+    dplyr::rename(Long = X, Lat = Y)
   
   data_sp <- as(data_sf, "Spatial")  # Convert to Spatial object for gstat
   vgm_model <- variogram(dingo_ancestry ~ 1, data_sp)  # Compute experimental variogram
@@ -114,7 +114,7 @@ grid_kgari_circle <- expand.grid(
 ############
 ###### Metadata for Cairns and WGS (ancient and modern) samples
 ############
-coords <- fread('sample_coordinates.csv') %>% 
+coords <- fread('samples_coordinates.tsv') %>% 
   janitor::clean_names() %>% 
   dplyr::mutate(
     longitude = as.numeric(longitude),
@@ -123,6 +123,9 @@ coords <- fread('sample_coordinates.csv') %>%
   ) 
 
 unrelated_dingoes <- fread("dingo_unrelates_samples_max.list", header = F, col.names = c("sample_name"))
+
+scarsbrook_conversion <- fread("scarsbrook_metadata.tsv") %>%
+  janitor::clean_names()
 
 #########
 ###### Human Population Density  
@@ -246,40 +249,34 @@ microsat_data <- fread("microsat_data.csv") %>%
 #   pivot_longer(cols = starts_with("dingo"), names_to = "k", values_to = "value") %>%
 #   dplyr::mutate(k = gsub("dingo", "", k)) 
 
-admixture_k2_k11_dingoes <- fread("admixture_k2_k12_20250611.csv") %>%
+admixture_k2_k11_dingoes <- fread("admixture_k2_k12_20260112.csv") %>%
   janitor::clean_names() %>%
-  dplyr::mutate(
-    type := case_when(
-      str_detect(sample_name, "Din") ~ "WGS",
-      .default = "SNP Array"
-    ),
+  dplyr::filter(species != "Dog") %>%
+  left_join(., scarsbrook_conversion %>% dplyr::rename(new_id = sample_id), by=join_by("sample_id"=="ena_id")) %>%
+  dplyr::mutate(sample_id := case_when(
+    str_detect(sample_id, "SAMN") ~ new_id,
+    .default = sample_id
+  )) %>%
+  dplyr::select(-new_id, -species) %>%
+  left_join(., coords, by=join_by("sample_id"=="sample_name")) %>%
+  dplyr::rename(sample_name = sample_id,
+                type=data_type) %>%
+  dplyr::select(-c(starts_with("dog"), sample_id.y, longitude, latitude, age, age_type)) %>%
+  mutate(
     population := case_when(
-      str_detect(sample_name, "BIGDESERT") ~ "Mallee",
-      str_detect(sample_name, "CAPTIVE") ~ "Captive",
-      str_detect(sample_name, "EAST") ~ "East",
-      str_detect(sample_name, "SOUTH") ~ "South",
-      str_detect(sample_name, "WEST") ~ "West",
-      str_detect(sample_name, "HYBRID") ~ "Dingo x Dog Hybrid",
-      str_detect(sample_name, "Dingo_Alpine_Cooinda") ~ "Cooinda",
-      str_detect(sample_name, "Alpine_D") ~ "Apline",
-      str_detect(sample_name , "Sandy") ~ "Sandy",
-      str_detect(sample_name, "FraserIsland") ~ "K'gari",
-      str_detect(sample_name, "Gibson_Desert") ~ "Gibson Desert",
-      str_detect(sample_name, "Kimberley") ~ "Kimberley",
-      str_detect(sample_name, "Northern_Queensland") ~ "Northern Queensland",
-      str_detect(sample_name, "Northern_Territory") ~ "Northern Territory",
-      str_detect(sample_name, "Simpson_Desert") ~ "Simpson Desert",
-      str_detect(sample_name, "Curracurrang") ~ "Curracurrang",
-      str_detect(sample_name, "Nullarbor") ~ "Nullarbor",
-      .default = "Dog"
+      str_detect(sample_name, "Curracurrang") ~ "Curracurrang 2k",
+      str_detect(sample_name, "Nullarbor") ~ "Nullarbor 1k",
+      .default = population
+    ),
+    type := case_when(
+      sample_name %in% c("Dingo_Ancient_Nullarbor", "Dingo_Ancient_Curracurrang") ~ "WGS",
+      .default = type
     )
-  ) %>%
-  dplyr::filter(population != "Dog") 
+  )
 
 admixture_k2_k11_dingoes_long <- admixture_k2_k11_dingoes %>%
   pivot_longer(cols = starts_with("dingo"), names_to = "k", values_to = "value") %>%
   dplyr::mutate(k = as.numeric(gsub("dingo", "", k)))
-
 ##########
 ###### qpAdm for Cairns and WGS samples
 ##########
@@ -292,8 +289,20 @@ qpadm_snp_array <- fread("snp_array_qpadm_best_model.csv") %>%
   janitor::clean_names() %>%
   dplyr::mutate(snp_used = "46K")
 
+qpadm_snp_array_scarsbrook <- fread("qpadm_snp_array_scarsbrook.csv") %>%
+  janitor::clean_names() %>%
+  dplyr::select(-sum_above_3) %>%
+  dplyr::mutate(snp_used = "46K")
+
+qpadm_wgs_scarsbrook <- fread("qpadm_wgs_array_scarsbrook.csv") %>%
+  janitor::clean_names() %>%
+  dplyr::select(-sum_above_3) %>%
+  dplyr::mutate(snp_used = "1.9M")
+
 
 qpadm_results_wgs_snp <- rbind(qpadm_wgs, qpadm_snp_array) %>%
+  rbind(qpadm_wgs_scarsbrook) %>% 
+  rbind(qpadm_snp_array_scarsbrook) %>%
   dplyr::mutate(
     dingo_ancient_curracurrang := case_when(
       is.na(dingo_ancient_curracurrang) ~ 0,
@@ -315,6 +324,10 @@ qpadm_results_wgs_snp <- rbind(qpadm_wgs, qpadm_snp_array) %>%
     dingo_ancestry_se = se_dingo_ancient_curracurrang + se_dingo_ancient_nullarbor) %>%
   dplyr::select(target, dingo_ancestry, dingo_ancestry_se, source, right, snp_used)
 
+tmp <- qpadm_results_wgs_snp %>% dplyr::select(target, dingo_ancestry, dingo_ancestry_se, snp_used)
+write.csv(tmp, "all_admixture.csv", quote = F, row.names = F)
+
+
 qpadm_results_wgs_snp_meta <- left_join(qpadm_results_wgs_snp, coords, by=join_by("target"=="sample_name"))
 
 qpadm_results_wgs_snp_meta_simple <- qpadm_results_wgs_snp_meta %>% 
@@ -324,8 +337,16 @@ qpadm_results_wgs_snp_meta_simple <- qpadm_results_wgs_snp_meta %>%
 #########
 ###### Outgroup f4 for Cairns and WGS samples
 #########
-f4_affinity <- fread("f4_affinity_20250609.csv") %>%
+#f4_affinity <- fread("../../arranged_folder/analyses/SNP_array/f4_affinity/f4_affinity_dingo_segs_only.csv") %>%
+
+f4_affinity <- fread("masked_f4_affinity.csv") %>%
   janitor::clean_names() %>%
+  left_join(., scarsbrook_conversion, by=join_by("pop1"=="ena_id")) %>%
+  dplyr::mutate(pop1 := case_when(
+    str_detect(pop1, "SAMN") ~ sample_id,
+    .default = pop1
+  )) %>%
+  dplyr::select(-sample_id) %>%
   dplyr::rename(sample_name = pop1) %>%
   #dplyr::mutate(
   #affinity = (ancient_dingo_curracurrang-ancient_dingo_nullarbor)/(ancient_dingo_curracurrang+ancient_dingo_nullarbor),
@@ -334,7 +355,7 @@ f4_affinity <- fread("f4_affinity_20250609.csv") %>%
   left_join(., coords, by="sample_name")
 
 f4_affinity_simple <- f4_affinity %>%
-  dplyr::select(sample_name, est_dingo_ancient_nullarbor, est_dingo_ancient_curracurrang, affinity)
+  dplyr::select(sample_name, nullarbor_est, curracurrang_est, affinity)
 
 #########
 ### FEEMS things
@@ -353,21 +374,11 @@ edges_weights <- merge(edges, corrected)
 #########
 ### tSNE things
 #########
-dd_7_names <- fread("kmeans_1989_250611.csv") %>%
-  janitor::clean_names()
-
-coords_ancient_fixed <- coords %>% 
-  mutate(sample_name:= case_when(
-    sample_name %in% c("Dingo_Ancient_Curracurrang", "Dingo_Ancient_Nullarbor") ~ paste0(sample_name, "_", sample_id),
-    .default = sample_name),
-    sample_name := case_when(
-      sample_name == "Dingo_Ancient_Nullarbor_A19058_libmerged" ~ "Dingo_Ancient_Nullarbor_A19058",
-      .default = sample_name
-    )
-  )
-
-#dd_7_names_coords <- left_join(dd_7_names, coords_ancient_fixed, by="sample_name")
-
+dd_7_names <- fread("kmeans_260115_w_manual_cluster_actually.csv") %>%
+  janitor::clean_names() %>%
+  dplyr::select(-c(sample_id, longitude, latitude, age, data_type, population, age_type)) %>%
+  left_join(., coords, by=join_by("pop_id"=="sample_name"))
+  
 # Split coords and no coords samples
 dd_7_w_coords <- dd_7_names %>%
   dplyr::filter(!is.na(latitude))
@@ -377,19 +388,18 @@ dd_7_no_coords <- dd_7_names %>%
   dplyr::arrange(desc(cluster7))
 
 # Fake latitudes
-latitudes <- c(rep(-37, 15), rep(-38, 15), rep(-39, 13)) 
+latitudes <- c(rep(-37, 12), rep(-38, 12), rep(-39, 12)) 
 # Fake longitudes
-longitudes <- rep(seq(120, 134, length.out = 15), length.out = 43)
+longitudes <- rep(seq(120, 134, length.out = 12), length.out = 36)
 
 dd_7_no_coords$latitude <- latitudes
 dd_7_no_coords$longitude <- longitudes
 
 dd_7_w_fake_coords <- rbind(dd_7_w_coords, dd_7_no_coords) %>%
-  dplyr::filter(longitude < 155) %>%
-  dplyr::mutate(cluster7 = factor(cluster7, levels=c(7,6,5,4,3,2,1)))
+  dplyr::filter(longitude < 155) 
 
 dd_7_simple <- dd_7_names %>% 
-  dplyr::select(sample_name,dingo_ancestry,cluster7)
+  dplyr::select(pop_id,cluster7)
 
 #########
 ###### Admixture f4 for Cairns and WGS samples 
@@ -403,6 +413,60 @@ table_s3 <- left_join(dd_7_simple, f4_affinity_simple, by="sample_name") %>%
   left_join(., admixture_proportions_simple, by="sample_name")
 
 write.csv(table_s3, "table_s3.csv", quote = F, row.names = F)
+
+nrow(table_s3)
+nrow(cairns_q_value)
+
+yassine_table <- merge(table_s3, cairns_q_value, by="sample_name") %>%
+  tidyr::separate(col = sample_name, into = c("cairns_pop", "discard"), sep = "_") %>%
+  dplyr::mutate(new_pop := case_when(
+    cluster7 == 1 ~ "Alpine",
+    cluster7 == 2 ~ "East",
+    cluster7 == 3 ~ "Captive",
+    cluster7 == 4 ~ "Mallee",
+    cluster7 == 5 ~ "Budjalung",
+    cluster7 == 6 ~ "West",
+    cluster7 == 7 ~ "Bripi-Dainggatti"
+  )) %>%
+  dplyr::select(sample_id, cairns_pop, new_pop, q_value, dingo_ancestry, 
+                est_dingo_ancient_nullarbor, est_dingo_ancient_curracurrang,
+                affinity, south_of_fence, longitude, latitude) 
+  
+
+write.csv(yassine_table, "cairns_samples_summary.csv", quote = F, row.names = F)
+
+snp_str_map <- fread("../../../nsw_contract/snp_str_matching.tsv") %>%
+  janitor::clean_names() %>%
+  dplyr::select(sample_id, longitude, latitude, lat, long, uwa_id, str_dingo_percent, no_markers_max_23)
+
+merged_table <- merge(yassine_table, snp_str_map, by="sample_id") 
+
+write.csv(merged_table, "cairns_samples_summary_w_str.csv", quote = F, row.names = F)
+
+#########
+### AdmixFrog
+#########
+snp_array_admixfrog <- fread("../../adaptive_introgression/admixfrox/snp_array_nomono_genome_wide_estimate.csv") %>%
+  mutate(dingo_frog_ancestry = curra_est + nulla_est,
+         dingo_frog_se = sqrt(curra_se^2 + nulla_se^2)) %>%
+  dplyr::select(sample, dingo_frog_ancestry, dingo_frog_se)
+
+qpadm_snp_array_summary <- qpadm_results_wgs_snp_meta %>%
+  filter(snp_used == "46K", !is.na(sample_id)) %>%
+  mutate(sample_id := case_when(
+    data_type == "WGS" ~ target,
+    .default = sample_id
+  )) %>%
+  dplyr::select(sample_id, dingo_ancestry, dingo_ancestry_se)
+
+frog_qpadm_snp_array_metadata <- merge(snp_array_admixfrog, qpadm_snp_array_summary, by.x="sample", by.y="sample_id") %>%
+  merge(., 
+        coords %>% 
+          mutate(sample_id := case_when(
+            data_type == "WGS" ~ sample_name,
+            .default = sample_id
+          )), by.x="sample", by.y="sample_id")
+
 
 #########
 #### Figure Asthetics
@@ -419,7 +483,7 @@ snp_population_shape <- c(
   "Mallee"=15,
   "Captive"=16,
   "East"=17,
-  "South"=18,
+  "Alpine"=18,
   "West"=19,
   "Dingo x Dog Hybrid"=20
 )
@@ -428,7 +492,7 @@ snp_population_colour <- c(
   "Mallee"="#ff595e",
   "Captive"="#ff924c",
   "East"="#ffca3a",
-  "South"="#8ac926",
+  "Alpine"="#8ac926",
   "West"="#1982c4",
   "Dingo x Dog Hybrid"="#6a4c93"
 )
@@ -446,14 +510,25 @@ wgs_population_colours <- c(
 )
 
 cluster_pallete <- c(
-  "1"="#8ac926",
-  "2"="#ffca3a",
-  "3"="#ff924c",
-  "4"="#ff595e",
-  "5"="#6a4c93",
-  "6"="#1982c4",
-  "7"="darkgreen"
+  "1"="#ff924c",
+  "2"="#841c26",
+  "3"="#1982c4",
+  "4"="darkgreen",
+  "5"="#8ac926",
+  "6"="darkorange",
+  "7"="#ffca3a",
+  "8"="#ff595e"
 )
+
+cluster_pallete <- c("East"="#ffca3a",
+                     "Curracurrang 2k"="#ffca3a",
+                     "North"="#8aaec4",
+                     "Alpine"="#8ac926",
+                     "Captive"="#ff924c",       
+                     "West"="#1982c4",
+                     "Nullarbor 1k"="#1982c4",
+                     "Mallee"="#ff595e",
+                     "K'gari"="#841c26")
 
 #"#000000"     "#E69F00"     "#56B4E9"     "#009E73"     "#F0E442"     "#0072B2"     "#D55E00"     "#CC79A7"     "#999999" 
 
@@ -466,3 +541,7 @@ cluster_pallete <- c(
 # dingo_ancestry_colour_list <- c("black", "#2a9d8f","#fcbf49","#f77f00", "#d62828")
 dingo_ancestry_colour_list <- c("black", "#264653", "#2a9d8f", "#e9c46a", "#e76f51")
 dingo_ancestry_colour_list_qpadm <- c("#264653", "#2a9d8f", "#e9c46a", "#e76f51")
+
+
+
+

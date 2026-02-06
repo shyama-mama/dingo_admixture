@@ -94,7 +94,7 @@ plot2 <- ggplot() +
 plot2
 
 wgs_samples_w_meta <- qpadm_results_wgs_snp_meta %>% 
-  dplyr::filter(data_type == "WGS" & snp_used == "1.9M")
+  dplyr::filter(data_type == "WGS" & snp_used == "1.9M" & !is.na(latitude))
 
 plot3 <- ggplot() +
   geom_sf_inset(data = australia, fill = NA, color = "black", size = 0.5, map_base = "normal", map_inset="auto") + # Draw the australian map
@@ -109,7 +109,7 @@ plot3 <- ggplot() +
   guides(colour = guide_colorbar(title.position = "top", title.hjust = 0.5, direction = "horizontal")) + 
   theme_void() +
   theme(
-    plot.margin = unit(c(0, 0, 0, 0)),
+    #plot.margin = unit(c(0, 0, 0, 0)),
     legend.position = c(0.3,0.1) 
   ) + 
   geom_inset_frame(colour="black", target.aes = list(linewidth=0.7)) + # Drawing the inset 
@@ -130,7 +130,7 @@ figure_a
 #### Figure B Rain cloud
 ###############
 cairns_dingoes_sf <- cairns_q_value %>%
-  dplyr::filter(latitude != "" & population %in% c("West", "South", "East", "Mallee", "Captive") & longitude < 155 & latitude < -5) %>%
+  dplyr::filter(latitude != "" & population %in% c("West", "Alpine", "East", "Mallee") & longitude < 155 & latitude < -5) %>%
   st_as_sf(., coords = c("longitude", "latitude"), crs = 4326)
 
 
@@ -154,6 +154,10 @@ microsat_sf <- microsat_sf[!multiple_populations, ]  # Remove those points
 
 no_population <- is.na(microsat_sf$population)
 
+# ggplot() +
+#   geom_sf(data=australia) +
+#   geom_sf(data=microsat_sf, aes(colour=population))
+
 if (any(no_population)) {
   closest_indices <- st_nearest_feature(microsat_sf[no_population, ], sf_polygons)
   microsat_sf$population[no_population] <- sf_polygons$population[closest_indices]
@@ -176,22 +180,38 @@ microsat_rain <- rbind(microsat_sf,captive_microsat)  %>%
   st_drop_geometry()
 
 cairns_rain <- cairns_q_value %>%
-  dplyr::filter(population %in% c("West", "South", "East", "Mallee", "Captive") & sample_name %in% unrelated_dingoes$sample_name ) %>%
+  dplyr::filter(population %in% c("West", "Alpine", "East", "Mallee", "Captive")) %>% # & sample_name %in% unrelated_dingoes$sample_name ) %>%
   dplyr::mutate(type = "Cairns et al., 2023",
                 type2 = "SNP+FS") %>%
   dplyr::rename(dingo_ancestry = q_value) %>%
   dplyr::select(population, type, type2, dingo_ancestry)
 
 qpadm_rain <- qpadm_results_wgs_snp_meta %>%
-  dplyr::filter(population %in% c("West", "South", "East", "Mallee", "Captive") & target %in% unrelated_dingoes$sample_name ) %>%
+  dplyr::filter(data_type != "WGS", population %in% c("West", "Alpine", "East", "Mallee", "Captive")) %>% # & target %in% unrelated_dingoes$sample_name ) %>%
   dplyr::mutate(type = "This Paper",
                 type2 = "SNP+qpAdm") %>%
   dplyr::select(population, type, type2, dingo_ancestry)
 
 merged_rain <- rbind(microsat_rain, cairns_rain, qpadm_rain) %>%
-  dplyr::mutate(population=factor(population, levels=c("Mallee", "South", "East", "West", "Captive")),
+  dplyr::mutate(population=factor(population, levels=c("Mallee", "Alpine", "East", "West", "Captive")),
                 type=factor(type, levels=c("Stephens et al., 2015", "Cairns et al., 2023", "This Paper")),
-                type2=factor(type2, levels=c("STR", "SNP+FS", "SNP+qpAdm")))
+                type2=factor(type2, levels=c("STR", "SNP+FS", "SNP+qpAdm"))) 
+
+merged_rain_sample_numbers <- merged_rain %>% 
+  group_by(population, type2) %>%
+  summarise(n=n()) %>%
+  mutate(type3 = paste0(type2, "\n(n=", n, ")")) %>%
+  ungroup() %>%
+  mutate(type3 = factor(type3, levels=c("STR\n(n=3)", "STR\n(n=445)", "STR\n(n=36)", "STR\n(n=1684)",
+                                        "STR\n(n=4)", "SNP+FS\n(n=22)", "SNP+FS\n(n=55)", "SNP+FS\n(n=106)",
+                                        "SNP+FS\n(n=133)", "SNP+FS\n(n=61)","SNP+qpAdm\n(n=22)", 
+                                        "SNP+qpAdm\n(n=55)", "SNP+qpAdm\n(n=104)","SNP+qpAdm\n(n=132)", "SNP+qpAdm\n(n=60)")))
+
+merged_rain_w_sample_counts <- merge(merged_rain, merged_rain_sample_numbers, by=c("population", "type2")) %>%
+  mutate(population := case_when(
+    population == "South" ~ "Alpine",
+    .default = population
+  ))
 
 # figure_b_stephens <- ggplot(merged_rain %>% dplyr::filter(type == "Stephens et al., 2015"), aes(x = population, y = 1-dingo_ancestry, fill=population)) +
 #   geom_rain( 
@@ -268,7 +288,7 @@ cairns_pops_map <- ggplot() +
   geom_sf(data=st_cast(inverse_polygon, "MULTIPOLYGON"), fill="white", colour="black") +
   #geom_sf(data=australia, fill="NA", colour="black") +
   geom_sf(data=dingo_fence, linewidth=0.5) +
-  facet_grid(~"Population Distribution*") +
+  facet_grid(~"Population Stratification") +
   scale_fill_manual(values=snp_population_colour) +
   scale_colour_manual(values=snp_population_colour) + 
   scale_y_continuous(sec.axis = dup_axis()) +
@@ -352,7 +372,7 @@ pop_density_plot <- ggplot() +
   theme(panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
         legend.position = "none") +
-  geom_text(aes(x=2.3, y=1.04, label="p = << 0.001"))
+  geom_text(aes(x=2.3, y=1.04, label="p = < 0.001"))
 pop_density_plot
 
 p <- admixture_proportions %>% 
@@ -384,7 +404,7 @@ p
 ################### Box plot idea two
 
 
-mallee <- ggplot(merged_rain %>% dplyr::filter(population == "Mallee"), aes(x=type2, y=1-dingo_ancestry, fill=population)) +
+mallee <- ggplot(merged_rain_w_sample_counts %>% dplyr::filter(population == "Mallee"), aes(x=type3, y=1-dingo_ancestry, fill=population)) +
   geom_rain(point.args = list(alpha=0.7, shape=21, size=1, colour="white"), 
             boxplot.args = list(outlier.shape = NA, lwd = 0.5),
             violin.args = list(colour=NA, scale="width")) +
@@ -407,7 +427,7 @@ mallee <- ggplot(merged_rain %>% dplyr::filter(population == "Mallee"), aes(x=ty
         plot.margin = unit(c(0, 0, 20, 0), "pt")) 
 mallee
 
-south <- ggplot(merged_rain %>% dplyr::filter(population == "South"), aes(x=type2, y=1-dingo_ancestry, fill=population)) +
+south <- ggplot(merged_rain_w_sample_counts %>% dplyr::filter(population == "Alpine"), aes(x=type3, y=1-dingo_ancestry, fill=population)) +
   geom_rain(point.args = list(alpha=0.7, shape=21, size=1, colour="white"), 
             boxplot.args = list(outlier.shape = NA, lwd = 0.5),
             violin.args = list(colour=NA, scale="width")) +
@@ -429,7 +449,7 @@ south <- ggplot(merged_rain %>% dplyr::filter(population == "South"), aes(x=type
         plot.margin = unit(c(0, 0, 20, 0), "pt")) 
 south
 
-east <- ggplot(merged_rain %>% dplyr::filter(population == "East"), aes(x=type2, y=1-dingo_ancestry, fill=population)) +
+east <- ggplot(merged_rain_w_sample_counts %>% dplyr::filter(population == "East"), aes(x=type3, y=1-dingo_ancestry, fill=population)) +
   geom_rain(point.args = list(alpha=0.7, shape=21, size=1, colour="white"), 
             boxplot.args = list(outlier.shape = NA, lwd = 0.5),
             violin.args = list(colour=NA, scale="width")) +
@@ -451,7 +471,7 @@ east <- ggplot(merged_rain %>% dplyr::filter(population == "East"), aes(x=type2,
         legend.position = "none",
         plot.margin = unit(c(0, 0, 20, 0), "pt")) 
 east
-west <- ggplot(merged_rain %>% dplyr::filter(population == "West"), aes(x=type2, y=1-dingo_ancestry, fill=population)) +
+west <- ggplot(merged_rain_w_sample_counts %>% dplyr::filter(population == "West"), aes(x=type3, y=1-dingo_ancestry, fill=population)) +
   geom_rain(point.args = list(alpha=0.7, shape=21, size=1, colour="white"), 
             boxplot.args = list(outlier.shape = NA, lwd = 0.5),
             violin.args = list(colour=NA, scale="width")) +
@@ -478,7 +498,7 @@ west <- ggplot(merged_rain %>% dplyr::filter(population == "West"), aes(x=type2,
         plot.margin = unit(c(0, 0, 20, 0), "pt")) 
 west
 
-captive <-  ggplot(merged_rain %>% dplyr::filter(population == "Captive"), aes(x=type2, y=1-dingo_ancestry, fill=population)) +
+captive <-  ggplot(merged_rain_w_sample_counts %>% dplyr::filter(population == "Captive"), aes(x=type3, y=1-dingo_ancestry, fill=population)) +
   geom_rain(point.args = list(alpha=0.7, shape=21, size=1, colour="white"), 
             boxplot.args = list(outlier.shape = NA, lwd = 0.5),
             violin.args = list(colour=NA, scale="width")) +
@@ -522,9 +542,9 @@ ggsave("../plots/figure_dingo_admixture_map_option2.jpg", figure_1_option_a, dpi
 ggsave("../plots/figure_dingo_admixture_map_option2.pdf", figure_1_option_a, dpi=700, height=9, width=13)
 
 
-figure_1_bcd <- wrap_plots(plot_spacer(), plot3 , plot_spacer(), pop_density_plot , plot_spacer(), p, plot_spacer(), ncol=7, widths = c(-0.15,1.1,-0.1, 1,0.1, 1, 0)) 
+figure_1_bcd <- wrap_plots(plot_spacer(), plot3 , plot_spacer(), pop_density_plot , plot_spacer(), p, plot_spacer(), gen_time_plot, ncol=8, widths = c(-0.15,1.5,-0.1, 0.8,0.1, 0.8, 0, 0.8)) 
 figure_1_bcd
-ggsave("../publication_plots/figure_1bcd.png", figure_1_bcd, dpi=700, height=7, width=18)
+ggsave("../publication_plots/figure_1bcde.png", figure_1_bcd, dpi=700, height=4, width=18)
 
 
 
@@ -534,7 +554,7 @@ B"
 
 figure_1 <- (fig_1a / figure_1_bcd) + plot_layout(design = design)
 
-ggsave("../publication_plots/figure_1.png", figure_1, dpi=600, width=16, height=8)
+ggsave("../publication_plots/figure_1_revisions_2.png", figure_1, dpi=600, width=16, height=8)
 
 
 
