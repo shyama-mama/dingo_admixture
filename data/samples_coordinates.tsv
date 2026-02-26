@@ -1,0 +1,437 @@
+Sample_Name	Sample_ID	Longitude	Latitude	Age	Data_Type	Population
+BIGDESERT_cd073	cd073	140.461	-35.60562	Modern	SNP Array	Mallee
+BIGDESERT_cd111	cd111	141.3819	-35.31353	Modern	SNP Array	Mallee
+BIGDESERT_cd112	cd112	141.9265	-35.88095	Modern	SNP Array	Mallee
+BIGDESERT_cd113	cd113	140.8293	-35.83782	Modern	SNP Array	Mallee
+BIGDESERT_cd114	cd114	142.0586	-35.41392	Modern	SNP Array	Mallee
+BIGDESERT_cd075	cd075	140.8041	-35.66905	Modern	SNP Array	Mallee
+BIGDESERT_cd115	cd115	141.4384	-35.97509	Modern	SNP Array	Mallee
+BIGDESERT_cd642	cd642	141.921752	-35.698	Modern	SNP Array	Mallee
+BIGDESERT_cd628	cd628	140.7544	-35.64884	Modern	SNP Array	Mallee
+BIGDESERT_cd641	cd641	141.921752	-35.698	Modern	SNP Array	Mallee
+BIGDESERT_cd280	cd280	141.4381	-35.9597	Modern	SNP Array	Mallee
+BIGDESERT_cd271	cd271	141.6881	-35.2826	Modern	SNP Array	Mallee
+BIGDESERT_cd272	cd272	142.0876	-35.4682	Modern	SNP Array	Mallee
+BIGDESERT_cd273	cd273	141.1394	-35.3603	Modern	SNP Array	Mallee
+BIGDESERT_cd274	cd274	141.2952	-35.341	Modern	SNP Array	Mallee
+BIGDESERT_cd276	cd276	142.0579	-35.3028	Modern	SNP Array	Mallee
+BIGDESERT_cd278	cd278	141.4399	-35.9031	Modern	SNP Array	Mallee
+BIGDESERT_cd279	cd279	142.0601	-35.4293	Modern	SNP Array	Mallee
+BIGDESERT_cd282	cd282	140.461	-35.6065	Modern	SNP Array	Mallee
+BIGDESERT_cd283	cd283	141.597	-35.2781	Modern	SNP Array	Mallee
+BIGDESERT_cd316	cd316	140.2224	-35.9827	Modern	SNP Array	Mallee
+BIGDESERT_cd339	cd339	140.8036	-35.67556	Modern	SNP Array	Mallee
+CAPTIVE_106.1	106.1	153.4273	-28.04843	Modern	SNP Array	Captive
+CAPTIVE_144.9	144.9	148.2484	-35.77729	Modern	SNP Array	Captive
+CAPTIVE_cd001	cd001			Modern	SNP Array	Captive
+CAPTIVE_cd007	cd007			Modern	SNP Array	Captive
+CAPTIVE_cd012	cd012			Modern	SNP Array	Captive
+CAPTIVE_cd015	cd015			Modern	SNP Array	Captive
+CAPTIVE_cd019	cd019			Modern	SNP Array	Captive
+CAPTIVE_cd020	cd020			Modern	SNP Array	Captive
+CAPTIVE_cd023	cd023			Modern	SNP Array	Captive
+CAPTIVE_cd024	cd024			Modern	SNP Array	Captive
+CAPTIVE_cd025	cd025			Modern	SNP Array	Captive
+CAPTIVE_cd034	cd034			Modern	SNP Array	Captive
+CAPTIVE_cd041	cd041			Modern	SNP Array	Captive
+CAPTIVE_cd042	cd042			Modern	SNP Array	Captive
+CAPTIVE_cd043	cd043			Modern	SNP Array	Captive
+CAPTIVE_cd044	cd044			Modern	SNP Array	Captive
+CAPTIVE_cd046	cd046			Modern	SNP Array	Captive
+CAPTIVE_cd047	cd047			Modern	SNP Array	Captive
+CAPTIVE_cd048	cd048			Modern	SNP Array	Captive
+CAPTIVE_cd049	cd049			Modern	SNP Array	Captive
+CAPTIVE_cd050	cd050			Modern	SNP Array	Captive
+CAPTIVE_cd052	cd052			Modern	SNP Array	Captive
+CAPTIVE_cd071	cd071			Modern	SNP Array	Captive
+CAPTIVE_cd077	cd077			Modern	SNP Array	Captive
+CAPTIVE_cd085	cd085			Modern	SNP Array	Captive
+CAPTIVE_cd090	cd090			Modern	SNP Array	Captive
+CAPTIVE_cd094	cd094			Modern	SNP Array	Captive
+CAPTIVE_cd098	cd098			Modern	SNP Array	Captive
+CAPTIVE_cd099	cd099			Modern	SNP Array	Captive
+CAPTIVE_cd100	cd100			Modern	SNP Array	Captive
+CAPTIVE_cd101	cd101			Modern	SNP Array	Captive
+CAPTIVE_cd102	cd102			Modern	SNP Array	Captive
+CAPTIVE_cd104	cd104			Modern	SNP Array	Captive
+CAPTIVE_cd106	cd106			Modern	SNP Array	Captive
+CAPTIVE_cd109	cd109			Modern	SNP Array	Captive
+CAPTIVE_cd016	cd016			Modern	SNP Array	Captive
+CAPTIVE_cd027	cd027			Modern	SNP Array	Captive
+CAPTIVE_cd087	cd087			Modern	SNP Array	Captive
+CAPTIVE_cd127	cd127			Modern	SNP Array	Captive
+CAPTIVE_cd051	cd051			Modern	SNP Array	Captive
+CAPTIVE_cd008	cd008			Modern	SNP Array	Captive
+CAPTIVE_cd103	cd103			Modern	SNP Array	Captive
+CAPTIVE_cd566	cd566			Modern	SNP Array	Captive
+CAPTIVE_cd652	cd652			Modern	SNP Array	Captive
+CAPTIVE_cd667	cd667			Modern	SNP Array	Captive
+CAPTIVE_cd627	cd627			Modern	SNP Array	Captive
+CAPTIVE_cd629	cd629	151.2892	-33.47553	Modern	SNP Array	Captive
+CAPTIVE_cd172	cd172			Modern	SNP Array	Captive
+CAPTIVE_cd180	cd180			Modern	SNP Array	Captive
+CAPTIVE_cd304	cd304			Modern	SNP Array	Captive
+CAPTIVE_cd306	cd306			Modern	SNP Array	Captive
+CAPTIVE_cd308	cd308			Modern	SNP Array	Captive
+CAPTIVE_cd310	cd310			Modern	SNP Array	Captive
+CAPTIVE_cd313	cd313			Modern	SNP Array	Captive
+CAPTIVE_cd317	cd317			Modern	SNP Array	Captive
+CAPTIVE_cd344	cd344			Modern	SNP Array	Captive
+CAPTIVE_cd169	cd169			Modern	SNP Array	Captive
+CAPTIVE_cd175	cd175			Modern	SNP Array	Captive
+CAPTIVE_cd233	cd233			Modern	SNP Array	Captive
+CAPTIVE_cd258	cd258			Modern	SNP Array	Captive
+CAPTIVE_cd296	cd296			Modern	SNP Array	Captive
+HYBRID_cd022	cd022			Modern	SNP Array	Dingo x Dog Hybrid
+HYBRID_cd026	cd026			Modern	SNP Array	Dingo x Dog Hybrid
+HYBRID_cd076	cd076			Modern	SNP Array	Dingo x Dog Hybrid
+HYBRID_cd630	cd630			Modern	SNP Array	Dingo x Dog Hybrid
+HYBRID_cd648	cd648			Modern	SNP Array	Dingo x Dog Hybrid
+HYBRID_cd661	cd661			Modern	SNP Array	Dingo x Dog Hybrid
+HYBRID_cd664	cd664			Modern	SNP Array	Dingo x Dog Hybrid
+HYBRID_cd213	cd213			Modern	SNP Array	Dingo x Dog Hybrid
+EAST_cd074	cd074	150.6042	-34.35397	Modern	SNP Array	East
+EAST_cd132	cd132	152.4607	-30.9439	Modern	SNP Array	East
+EAST_cd133	cd133	152.9797	-30.76669	Modern	SNP Array	East
+EAST_cd134	cd134	152.9797	-30.76669	Modern	SNP Array	East
+EAST_cd135	cd135	152.9746	-30.79855	Modern	SNP Array	East
+EAST_cd033	cd033	152.0989	-27.47943	Modern	SNP Array	East
+EAST_cd061	cd061	152.9058	-30.53715	Modern	SNP Array	East
+EAST_cd063	cd063	152.6833	-29.9	Modern	SNP Array	East
+EAST_cd066	cd066			Modern	SNP Array	East
+EAST_cd137	cd137	152.5096	-30.83572	Modern	SNP Array	East
+EAST_cd138	cd138	152.7936	-31.50689	Modern	SNP Array	East
+EAST_cd021	cd021	152.8616	-27.5227	Modern	SNP Array	East
+EAST_cd060	cd060	153.4535	-29.00777	Modern	SNP Array	East
+EAST_cd096	cd096			Modern	SNP Array	East
+EAST_cd097	cd097	152.8487	-26.70643	Modern	SNP Array	East
+EAST_cd136	cd136	152.5096	-30.83572	Modern	SNP Array	East
+EAST_cd017	cd017	152.851	-31.04978	Modern	SNP Array	East
+EAST_cd110	cd110	152.262	-32.00052	Modern	SNP Array	East
+EAST_cd059	cd059	153.0005	-30.05752	Modern	SNP Array	East
+EAST_cd517	cd517			Modern	SNP Array	East
+EAST_cd553	cd553	153.0948	-30.16555	Modern	SNP Array	East
+EAST_cd355	cd355	153.0009	-30.41468	Modern	SNP Array	East
+EAST_cd568	cd568	152.6	-27.87	Modern	SNP Array	East
+EAST_cd550	cd550	151.9623	-32.0282	Modern	SNP Array	East
+EAST_cd551	cd551	151.9623	-32.0282	Modern	SNP Array	East
+EAST_cd354	cd354	153.0009	-30.41468	Modern	SNP Array	East
+EAST_cd570	cd570	153.0961	-30.21338	Modern	SNP Array	East
+EAST_cd523	cd523	152.854	-26.61278	Modern	SNP Array	East
+EAST_cd522	cd522	150.1595	-32.80933	Modern	SNP Array	East
+EAST_cd559	cd559	152.1842	-32.65726	Modern	SNP Array	East
+EAST_cd526	cd526	152.7	-30.28647	Modern	SNP Array	East
+EAST_cd520	cd520	150.1595	-32.80933	Modern	SNP Array	East
+EAST_cd554	cd554	150.7384	-34.30877	Modern	SNP Array	East
+EAST_cd527	cd527	152.7	-30.28492	Modern	SNP Array	East
+EAST_cd519	cd519	152.4618	-30.25148	Modern	SNP Array	East
+EAST_cd521	cd521	150.1595	-32.80933	Modern	SNP Array	East
+EAST_cd351	cd351	150.1596	-32.80897	Modern	SNP Array	East
+EAST_cd353	cd353	153.0009	-30.41468	Modern	SNP Array	East
+EAST_cd552	cd552	151.9478	-32.16119	Modern	SNP Array	East
+EAST_cd718	cd718	152.1795	-32.63979	Modern	SNP Array	East
+EAST_cd647	cd647	152.6474	-31.29596	Modern	SNP Array	East
+EAST_cd645	cd645	150.5735	-34.32421	Modern	SNP Array	East
+EAST_cd650	cd650	153.1219	-29.3192	Modern	SNP Array	East
+EAST_cd637	cd637	152.8055	-30.68087	Modern	SNP Array	East
+EAST_cd654	cd654	152.624	-25.4949	Modern	SNP Array	East
+EAST_cd649	cd649	152.7676	-30.69803	Modern	SNP Array	East
+EAST_cd714	cd714	152.183	-32.66153	Modern	SNP Array	East
+EAST_cd663	cd663	152.5625	-25.83622	Modern	SNP Array	East
+EAST_cd655	cd655	153.4389	-28.69645	Modern	SNP Array	East
+EAST_cd656	cd656	153.4305	-28.65694	Modern	SNP Array	East
+EAST_cd659	cd659	151.6435	-28.21185	Modern	SNP Array	East
+EAST_cd634	cd634	152.4339	-27.23481	Modern	SNP Array	East
+EAST_cd702	cd702	150.5204	-34.38886	Modern	SNP Array	East
+EAST_cd631	cd631	151.7612	-32.79921	Modern	SNP Array	East
+EAST_cd636	cd636	150.58	-34.32	Modern	SNP Array	East
+EAST_cd141	cd141	152.8116	-31.47985	Modern	SNP Array	East
+EAST_cd143	cd143	152.9005	-31.49984	Modern	SNP Array	East
+EAST_cd140	cd140	152.8252	-31.51708	Modern	SNP Array	East
+EAST_cd146	cd146	152.9896	-30.77168	Modern	SNP Array	East
+EAST_cd142	cd142	152.9664	-31.26074	Modern	SNP Array	East
+EAST_cd139	cd139	152.8218	-31.51257	Modern	SNP Array	East
+EAST_cd144	cd144	152.1699	-32.0432	Modern	SNP Array	East
+EAST_cd623	cd623			Modern	SNP Array	East
+EAST_cd618	cd618	150.2714	-33.32164	Modern	SNP Array	East
+EAST_cd622	cd622	152.7169	-30.2169	Modern	SNP Array	East
+EAST_cd613	cd613	152.4715	-31.6116	Modern	SNP Array	East
+EAST_cd147	cd147	153.0321	-30.9846	Modern	SNP Array	East
+EAST_cd149	cd149	152.9664	-31.18675	Modern	SNP Array	East
+EAST_cd150	cd150	153.0463	-30.93151	Modern	SNP Array	East
+EAST_cd151	cd151	153.02	-30.99844	Modern	SNP Array	East
+EAST_cd152	cd152	152.9012	-31.4001	Modern	SNP Array	East
+EAST_cd155	cd155	153.0209	-31.00662	Modern	SNP Array	East
+EAST_cd156	cd156	152.9481	-31.20757	Modern	SNP Array	East
+EAST_cd159	cd159	153.0243	-30.99737	Modern	SNP Array	East
+EAST_cd160	cd160	153.02	-31.08845	Modern	SNP Array	East
+EAST_cd162	cd162	151.7095	-32.00572	Modern	SNP Array	East
+EAST_cd163	cd163	152.0967	-31.83239	Modern	SNP Array	East
+EAST_cd164	cd164	151.9408	-30.89452	Modern	SNP Array	East
+EAST_cd165	cd165	152.8581	-31.27541	Modern	SNP Array	East
+EAST_cd166	cd166	152.8627	-31.31499	Modern	SNP Array	East
+EAST_cd167	cd167	152.8627	-31.31497	Modern	SNP Array	East
+EAST_cd215	cd215			Modern	SNP Array	East
+EAST_cd245	cd245	152.3248	-32.39432	Modern	SNP Array	East
+EAST_cd248	cd248	152.3098	-32.5437	Modern	SNP Array	East
+EAST_cd263	cd263	152.4416	-30.7858	Modern	SNP Array	East
+EAST_cd305	cd305	152.3946	-31.28163	Modern	SNP Array	East
+EAST_cd238	cd238	153.0423	-30.28586	Modern	SNP Array	East
+EAST_cd239	cd239	152.7167	-30.41667	Modern	SNP Array	East
+EAST_cd240	cd240	152.75	-30.3	Modern	SNP Array	East
+EAST_cd242	cd242	153.05	-30.28333	Modern	SNP Array	East
+EAST_cd256	cd256	153.2676	-29.83797	Modern	SNP Array	East
+EAST_cd314	cd314	151.9688	-27.5108	Modern	SNP Array	East
+EAST_cd319	cd319	152.3267	-25.31136	Modern	SNP Array	East
+EAST_cd177	cd177	151.7768	-32.82812	Modern	SNP Array	East
+EAST_cd205	cd205	152.0351	-27.61274	Modern	SNP Array	East
+EAST_cd222	cd222	153.4538	-28.3634	Modern	SNP Array	East
+EAST_cd232	cd232	152.6646	-26.39517	Modern	SNP Array	East
+EAST_cd250	cd250	153.2372	-28.14572	Modern	SNP Array	East
+EAST_cd251	cd251	153.2397	-28.15141	Modern	SNP Array	East
+EAST_cd254	cd254	153.2323	-27.919	Modern	SNP Array	East
+EAST_cd315	cd315	152.7507	-25.56579	Modern	SNP Array	East
+EAST_cd320	cd320	151.0409	-33.1869	Modern	SNP Array	East
+EAST_cd334	cd334	150.3682	-32.94524	Modern	SNP Array	East
+EAST_cd335	cd335	150.3682	-32.94524	Modern	SNP Array	East
+EAST_cd337	cd337	150.3682	-32.94524	Modern	SNP Array	East
+EAST_cd350	cd350	150.1596	-32.80897	Modern	SNP Array	East
+SOUTH_44.2	44.2	148.9134	-35.79751	Modern	SNP Array	Alpine
+SOUTH_64.3	64.3	147.0378	-36.77829	Modern	SNP Array	Alpine
+SOUTH_65.1	65.1	147.8652	-36.27755	Modern	SNP Array	Alpine
+SOUTH_85.1	85.1	147.9035	-37.34451	Modern	SNP Array	Alpine
+SOUTH_86.1	86.1	147.9814	-37.21963	Modern	SNP Array	Alpine
+SOUTH_89.3	89.3	147.1951	-36.50343	Modern	SNP Array	Alpine
+SOUTH_95.4	95.4	147.6032	-37.60797	Modern	SNP Array	Alpine
+SOUTH_138.4	138.4	147.8157	-36.0721	Modern	SNP Array	Alpine
+SOUTH_207.2	207.2	147.3498	-36.57791	Modern	SNP Array	Alpine
+SOUTH_209.2	209.2	147.7394	-36.16272	Modern	SNP Array	Alpine
+SOUTH_209.3	209.3	147.7719	-36.07278	Modern	SNP Array	Alpine
+SOUTH_214.4	214.4	147.8449	-36.14806	Modern	SNP Array	Alpine
+SOUTH_cd031	cd031	145.8098	-37.98066	Modern	SNP Array	Alpine
+SOUTH_cd516	cd516	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd605	cd605	146.7492	-36.57532	Modern	SNP Array	Alpine
+SOUTH_cd547	cd547	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd549	cd549	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd548	cd548	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd713	cd713	147.4156	-36.63056	Modern	SNP Array	Alpine
+SOUTH_cd674	cd674	146.9803	-36.72282	Modern	SNP Array	Alpine
+SOUTH_cd651	cd651	145.6706	-37.53986	Modern	SNP Array	Alpine
+SOUTH_cd686	cd686	146.9803	-36.72282	Modern	SNP Array	Alpine
+SOUTH_cd673	cd673	146.9803	-36.72282	Modern	SNP Array	Alpine
+SOUTH_Kosci1	Kosci1	148.6628	-36.2182	Modern	SNP Array	Alpine
+SOUTH_cd683	cd683	146.9803	-36.72282	Modern	SNP Array	Alpine
+SOUTH_cd678	cd678	146.9803	-36.72282	Modern	SNP Array	Alpine
+SOUTH_cd639	cd639	146.9145	-36.70463	Modern	SNP Array	Alpine
+SOUTH_cd712	cd712	147.4156	-36.63056	Modern	SNP Array	Alpine
+SOUTH_cd684	cd684	146.9803	-36.72282	Modern	SNP Array	Alpine
+SOUTH_cd646	cd646	145.4635	-37.541	Modern	SNP Array	Alpine
+SOUTH_cd672	cd672	146.9803	-36.72282	Modern	SNP Array	Alpine
+SOUTH_Kosci3	Kosci3	148.6628	-36.2182	Modern	SNP Array	Alpine
+SOUTH_cd617	cd617	146.4158	-38.00917	Modern	SNP Array	Alpine
+SOUTH_cd615	cd615	147.8368	-36.26684	Modern	SNP Array	Alpine
+SOUTH_cd606	cd606	146.7492	-36.57532	Modern	SNP Array	Alpine
+SOUTH_cd223	cd223	146.9828	-36.76278	Modern	SNP Array	Alpine
+SOUTH_cd284	cd284	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd286	cd286	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd287	cd287	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd289	cd289	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd290	cd290	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd291	cd291	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd292	cd292	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd293	cd293	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd295	cd295	147.6467	-37.03196	Modern	SNP Array	Alpine
+SOUTH_cd312	cd312			Modern	SNP Array	Alpine
+SOUTH_cd338	cd338	148.8095	-35.26304	Modern	SNP Array	Alpine
+SOUTH_cd343	cd343	147.1527	-36.77227	Modern	SNP Array	Alpine
+SOUTH_cd349	cd349	146.1277	-37.28506	Modern	SNP Array	Alpine
+SOUTH_cd318	cd318	149.8477	-37.11756	Modern	SNP Array	Alpine
+SOUTH_cd179	cd179	145.6684	-37.78457	Modern	SNP Array	Alpine
+SOUTH_cd184	cd184	145.6656	-37.80574	Modern	SNP Array	Alpine
+SOUTH_cd244	cd244	150.8082	-35.01633	Modern	SNP Array	Alpine
+SOUTH_cd341	cd341	145.9005	-37.21682	Modern	SNP Array	Alpine
+SOUTH_cd206	cd206	148.1994	-35.54721	Modern	SNP Array	Alpine
+WEST_1.42	1.42	120.1314	-31.22347	Modern	SNP Array	West
+WEST_6.25	6.25	117.29	-29.423	Modern	SNP Array	West
+WEST_8.31	8.31	126.8317	-31.02705	Modern	SNP Array	West
+WEST_8.99	8.99	119.7901	-31.06883	Modern	SNP Array	West
+WEST_9.17	9.17	118.0635	-20.93725	Modern	SNP Array	West
+WEST_9.28	9.28	122.5133	-30.38679	Modern	SNP Array	West
+WEST_9.56	9.56	127.9714	-31.67489	Modern	SNP Array	West
+WEST_10.64	10.64	115.906	-27.309	Modern	SNP Array	West
+WEST_11.7	11.7	124.5411	-29.35754	Modern	SNP Array	West
+WEST_12.86	12.86	122.167	-31.14452	Modern	SNP Array	West
+WEST_13.1	13.1	125.862	-30.986	Modern	SNP Array	West
+WEST_14.11	14.11	116.2215	-25.39975	Modern	SNP Array	West
+WEST_16.46	16.46	125.4759	-30.57863	Modern	SNP Array	West
+WEST_16.58	16.58	119.3853	-25.56431	Modern	SNP Array	West
+WEST_17.99	17.99	121.1158	-27.90189	Modern	SNP Array	West
+WEST_21.1	21.1	153.283	-25.167	Modern	SNP Array	West
+WEST_21.4	21.4	153.0767	-25.79134	Modern	SNP Array	West
+WEST_48.38	48.38	140.6622	-30.52622	Modern	SNP Array	West
+WEST_48.4	48.4	140.6622	-30.52622	Modern	SNP Array	West
+WEST_56.5	56.5	149.4008	-26.79271	Modern	SNP Array	West
+WEST_66.1	66.1	146.7672	-19.23107	Modern	SNP Array	West
+WEST_66.5	66.5	146.7627	-19.22445	Modern	SNP Array	West
+WEST_142.3	142.3	134.7386	-27.93841	Modern	SNP Array	West
+WEST_149.2	149.2	140.3409	-31.74611	Modern	SNP Array	West
+WEST_159.9	159.9	134.0576	-26.90822	Modern	SNP Array	West
+WEST_184.1	184.1	153.0292	-25.70383	Modern	SNP Array	West
+WEST_184.3	184.3	153.1233	-25.515	Modern	SNP Array	West
+WEST_205	205	150.6989	-27.68222	Modern	SNP Array	West
+WEST_218.3	218.3	144.3467	-21.62325	Modern	SNP Array	West
+WEST_155Q	155Q	149.0834	-27.15147	Modern	SNP Array	West
+WEST_161Q	161Q	149.383	-27.133	Modern	SNP Array	West
+WEST_17_12	17_12	123.6718	-28.74526	Modern	SNP Array	West
+WEST_170Q	170Q	152.993	-27.353	Modern	SNP Array	West
+WEST_3-100	3-100	156.4368	-23.73831	Modern	SNP Array	West
+WEST_cd005	cd005	144.7659	-17.28202	Modern	SNP Array	West
+WEST_cd028	cd028	127.8973	-18.40766	Modern	SNP Array	West
+WEST_cd032	cd032			Modern	SNP Array	West
+WEST_cd045	cd045			Modern	SNP Array	West
+WEST_cd053	cd053	122.2231	-21.71357	Modern	SNP Array	West
+WEST_cd054	cd054	128.6154	-15.72487	Modern	SNP Array	West
+WEST_cd055	cd055	120.7358	-23.38896	Modern	SNP Array	West
+WEST_cd091	cd091	124.4301	-16.86307	Modern	SNP Array	West
+WEST_cd092	cd092	141.4102	-32.09196	Modern	SNP Array	West
+WEST_cd120_1	cd120_1	146.8505	-19.33606	Modern	SNP Array	West
+WEST_cd121	cd121	120.2073	-26.59433	Modern	SNP Array	West
+WEST_cd124	cd124	119.0793	-22.72781	Modern	SNP Array	West
+WEST_cd125	cd125	117.1347	-20.81959	Modern	SNP Array	West
+WEST_cd126	cd126	118.6719	-20.3426	Modern	SNP Array	West
+WEST_3.16	3.16	129.1885	-16.49722	Modern	SNP Array	West
+WEST_10.71	10.71	128.8006	-31.70378	Modern	SNP Array	West
+WEST_11.99	11.99	120.0326	-32.5969	Modern	SNP Array	West
+WEST_152.3	152.3	138.2768	-30.06505	Modern	SNP Array	West
+WEST_152.4	152.4	138.2768	-30.06505	Modern	SNP Array	West
+WEST_219.1	219.1	145.3663	-16.36221	Modern	SNP Array	West
+WEST_1_14	1_14	125.218	-31.041	Modern	SNP Array	West
+WEST_cd002	cd002	145.6965	-17.7734	Modern	SNP Array	West
+WEST_cd035	cd035	148.9184	-21.29167	Modern	SNP Array	West
+WEST_cd068	cd068	150.5699	-23.3385	Modern	SNP Array	West
+WEST_cd064	cd064	145.4516	-17.11455	Modern	SNP Array	West
+WEST_cd108	cd108			Modern	SNP Array	West
+WEST_cd062	cd062	148.76	-20.29443	Modern	SNP Array	West
+WEST_cd029	cd029	131.0898	-13.24237	Modern	SNP Array	West
+WEST_cd040	cd040			Modern	SNP Array	West
+WEST_cd056	cd056			Modern	SNP Array	West
+WEST_cd014	cd014	146.9531	-19.36908	Modern	SNP Array	West
+WEST_cd057	cd057	120.8631	-22.79829	Modern	SNP Array	West
+WEST_cd589	cd589	150.3733	-27.8725	Modern	SNP Array	West
+WEST_cd598	cd598	145.6109	-17.49516	Modern	SNP Array	West
+WEST_cd567	cd567	145.7695	-17.60637	Modern	SNP Array	West
+WEST_cd596	cd596	145.5357	-16.96922	Modern	SNP Array	West
+WEST_cd599	cd599	119.2235	-22.93347	Modern	SNP Array	West
+WEST_cd593	cd593	150.3733	-27.8725	Modern	SNP Array	West
+WEST_cd597	cd597	146.1653	-18.62625	Modern	SNP Array	West
+WEST_cd602	cd602			Modern	SNP Array	West
+WEST_cd585	cd585	150.0972	-27.84807	Modern	SNP Array	West
+WEST_cd591	cd591	150.3733	-27.8725	Modern	SNP Array	West
+WEST_cd600	cd600	122.4005	-28.6809	Modern	SNP Array	West
+WEST_cd595	cd595	148.4932	-21.14176	Modern	SNP Array	West
+WEST_cd586	cd586	150.0972	-27.84807	Modern	SNP Array	West
+WEST_cd574	cd574	150.9406	-27.62583	Modern	SNP Array	West
+WEST_cd581	cd581	147.8947	-28.30222	Modern	SNP Array	West
+WEST_cd583	cd583	147.8947	-28.30222	Modern	SNP Array	West
+WEST_cd563	cd563	121.3079	-28.85226	Modern	SNP Array	West
+WEST_cd575	cd575	146.8869	-27.28361	Modern	SNP Array	West
+WEST_cd518	cd518	119.3302	-23.1495	Modern	SNP Array	West
+WEST_cd555	cd555	142.0089	-29.43654	Modern	SNP Array	West
+WEST_cd592	cd592	150.3733	-27.8725	Modern	SNP Array	West
+WEST_cd565	cd565	145.7655	-17.01042	Modern	SNP Array	West
+WEST_cd561	cd561	122.4112	-29.37529	Modern	SNP Array	West
+WEST_cd590	cd590	150.3733	-27.8725	Modern	SNP Array	West
+WEST_cd695	cd695	143.2695	-24.49887	Modern	SNP Array	West
+WEST_cd696	cd696	143.2695	-24.49887	Modern	SNP Array	West
+WEST_cd658	cd658	150.8063	-22.7998	Modern	SNP Array	West
+WEST_cd697	cd697	143.2695	-24.49887	Modern	SNP Array	West
+WEST_cd708	cd708	116.8491	-20.74322	Modern	SNP Array	West
+WEST_cd665	cd665	152.2173	-24.98381	Modern	SNP Array	West
+WEST_cd699	cd699	143.2695	-24.49887	Modern	SNP Array	West
+WEST_cd657	cd657	149.0271	-21.04196	Modern	SNP Array	West
+WEST_cd709	cd709	133.8866	-23.673	Modern	SNP Array	West
+WEST_cd666	cd666	145.5511	-16.92363	Modern	SNP Array	West
+WEST_cd710	cd710	133.8866	-23.673	Modern	SNP Array	West
+WEST_cd638	cd638	146.8356	-19.43747	Modern	SNP Array	West
+WEST_NT11	NT11	130.317	-20.542	Modern	SNP Array	West
+WEST_NT12	NT12	130.317	-20.542	Modern	SNP Array	West
+WEST_NT10	NT10	130.317	-20.542	Modern	SNP Array	West
+WEST_NT03	NT03	129.73	-20.571	Modern	SNP Array	West
+WEST_TA30	TA30	133.059	-22.387	Modern	SNP Array	West
+WEST_TA24	TA24	133.877	-23.694	Modern	SNP Array	West
+WEST_NT01	NT01	130.015	-20.192	Modern	SNP Array	West
+WEST_NT06	NT06	129.73	-20.571	Modern	SNP Array	West
+WEST_NT05	NT05	129.73	-20.571	Modern	SNP Array	West
+WEST_NT07	NT07	129.153	-20.505	Modern	SNP Array	West
+WEST_NT09	NT09	130.317	-20.542	Modern	SNP Array	West
+WEST_cd626	cd626	121.5575	-31.42043	Modern	SNP Array	West
+WEST_cd168	cd168	133.8427	-23.73034	Modern	SNP Array	West
+WEST_cd192	cd192	141.008	-29.46661	Modern	SNP Array	West
+WEST_cd193	cd193	141.008	-29.46661	Modern	SNP Array	West
+WEST_cd195	cd195	141.0088	-29.33237	Modern	SNP Array	West
+WEST_cd196	cd196	141.0088	-29.33237	Modern	SNP Array	West
+WEST_cd197	cd197	143.5919	-29.75932	Modern	SNP Array	West
+WEST_cd201	cd201	141.006	-29.44589	Modern	SNP Array	West
+WEST_cd237	cd237			Modern	SNP Array	West
+WEST_cd243	cd243	146.2836	-24.83367	Modern	SNP Array	West
+WEST_cd297	cd297	131.0404	-13.73	Modern	SNP Array	West
+WEST_cd309	cd309			Modern	SNP Array	West
+WEST_cd311	cd311			Modern	SNP Array	West
+WEST_cd325	cd325	123.701	-17.356	Modern	SNP Array	West
+WEST_cd329	cd329	146.8693	-19.35252	Modern	SNP Array	West
+WEST_cd330	cd330	115.7333	-22.7	Modern	SNP Array	West
+WEST_cd340	cd340	138.5915	-31.39448	Modern	SNP Array	West
+WEST_cd190	cd190	122.2745	-17.95779	Modern	SNP Array	West
+WEST_cd191	cd191	122.2745	-17.95779	Modern	SNP Array	West
+WEST_cd260	cd260	145.6825	-16.91028	Modern	SNP Array	West
+Dingo_Ancient_Nullarbor_A19058_libmerged	A19058_libmerged	129	-31.452438	Ancient	WGS	Nullarbor 1k
+Dingo_Ancient_Nullarbor_A19053	A19053	130.432094	-31.452438	Ancient	WGS	Nullarbor 1k
+Dingo_Alpine_Cooinda	Dingo_Alpine_Cooinda	150.5748	-34.264099	Modern	WGS	Alpine
+Dingo_Alpine_D01	Dingo_Alpine_D01	144.568549	-37.563751	Modern	WGS	Alpine
+Dingo_Alpine_D05	Dingo_Alpine_D05	148.384041	-36.411517	Modern	WGS	Alpine
+Dingo_Alpine_D07	Dingo_Alpine_D07	147.131633	-37.211651	Modern	WGS	Alpine
+Dingo_Desert_Sandy	Dingo_Desert_Sandy	140.1	-29.1	Modern	WGS	West
+Dingo_FraserIsland_D02	Dingo_FraserIsland_D02	153.132173	-25.250672	Modern	WGS	West
+Dingo_Gibson_Desert_D08	Dingo_Gibson_Desert_D08	114.699963	-25.193006	Modern	WGS	West
+Dingo_Kimberley_D09	Dingo_Kimberley_D09	121.598533	-21.675574	Modern	WGS	West
+Dingo_Northern_Queensland_D04	Dingo_Northern_Queensland_D04	145.330773	-16.258719	Modern	WGS	West
+Dingo_Northern_Queensland_D10	Dingo_Northern_Queensland_D10	145.217011	-15.442037	Modern	WGS	West
+Dingo_Northern_Territory_D06	Dingo_Northern_Territory_D06	130.957901	-12.44222	Modern	WGS	Captive
+Dingo_Simpson_Desert_D03	Dingo_Simpson_Desert_D03	138.41188	-24.486439	Modern	WGS	West
+Dingo_Ancient_Curracurrang_D10	D10	151.110011	-34.145507	Ancient	WGS	Curracurrang 2k
+Dingo_Ancient_Curracurrang_D13	D13	151.110011	-34.145507	Ancient	WGS	Curracurrang 2k
+Dingo_Ancient_Curracurrang_D16	D16	151.110011	-34.145507	Ancient	WGS	Curracurrang 2k
+Dingo_FraserIsland_Y07	Y07	153.132173	-25.250672	Modern	WGS	West
+Dingo_FraserIsland_Y47	Y47	153.132173	-25.250672	Modern	WGS	West
+Dingo_FraserIsland_E56	E56	153.132173	-25.250672	Modern	WGS	West
+Dingo02	34694			Modern	WGS	Captive
+Dingo03	4.1	125.868	-17.269	Modern	WGS	West
+Dingo04	17.7	119.105	-28.183	Modern	WGS	West
+Dingo05	140.5	147.083	-36.505	Modern	WGS	Alpine
+Dingo06	209.1	147.528	-36.184	Modern	WGS	Alpine
+Dingo07	220.2	138.449	-29.561	Modern	WGS	West
+Dingo08	44.2	148.913	-35.798	Modern	WGS	Alpine
+Dingo09	165Q	149.383	-27.133	Modern	WGS	West
+Dingo10	NT04	130.317	-20.542	Modern	WGS	West
+Dingo11	21.5	153.067	-25.45	Modern	WGS	West
+Dingo12	144.9	148.248	-35.777	Modern	WGS	Captive
+Dingo13	cd203			Modern	WGS	Captive
+Dingo14	cd107			Modern	WGS	Captive
+Dingo15	cd105			Modern	WGS	Captive
+Dingo16	SAMN43506337			Modern	WGS	Captive
+Dingo17	cd041			Modern	WGS	Captive
+Dingo18	cd013			Modern	WGS	Captive
+Dingo19	cd006			Modern	WGS	Captive
+Dingo20	cd100			Modern	WGS	Captive
+Dingo21	cd204			Modern	WGS	Captive
+Dingo22	cd035			Modern	WGS	Captive
+Dingo32	cd111	141.38	-35.31	Modern	WGS	Mallee
+Dingo31	cd819	141.96	-35.81	Modern	WGS	Mallee
+Dingo30	cd788	150.17	-33.26	Modern	WGS	East
+Dingo29	cd1047	149.33	-32.99	Modern	WGS	East
+Dingo28	MLDP020	152.32	-32.53	Modern	WGS	East
+Dingo27	MLDP019	152.32	-32.53	Modern	WGS	East
+Dingo26	cd287	147.65	-37.03	Modern	WGS	Alpine
+Dingo25	cd651	145.67	-37.54	Modern	WGS	Alpine
+Dingo24	cd906			Modern	WGS	Alpine
+Dingo23	Kosci1	148.66	-36.22	Modern	WGS	Alpine
